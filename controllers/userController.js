@@ -1,27 +1,6 @@
 const User = require('../models/user')
 
-exports.addUser = async (req,res) => {
- try {
-    const user = new User();
 
-    user.first_name = req.body.first_name
-    user.last_name = req.body.last_name
-    user.email = req.body.email
-
-    const userData = await user.save();
-
-    return res.status(200).json({
-        success : true,
-        message : 'User Successfully Added',
-        data : userData
-    })
- } catch (error) {
-    return res.status(500).json({
-        success : false,
-        message : 'User Not Added'
-    })
- }
-}
 
 exports.readUser = async (req,res) => {
     try {
